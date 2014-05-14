@@ -23,9 +23,9 @@ namespace HF.Character
 
         public override void Execute()
         {
-            C.Body.transform.Rotate(0, C.GetInput("Mouse X") * sensitivityX, 0);
+            C.Body.transform.Rotate(0, C.GetInput("Aim X") * sensitivityX, 0);
 
-            rotationY += C.GetInput("Mouse Y") * sensitivityY;
+            rotationY += C.GetInput("Aim Y") * sensitivityY;
             rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
             C.Eyes.transform.localEulerAngles = new Vector3(-rotationY, C.Eyes.transform.localEulerAngles.y, 0);
