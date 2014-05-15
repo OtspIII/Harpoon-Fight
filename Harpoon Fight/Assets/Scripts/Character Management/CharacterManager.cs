@@ -15,6 +15,8 @@ public class CharacterManager : MonoBehaviour
     private Dictionary<PlayerState, CharacterState> States;
     private Dictionary<PlayerAction,CharacterAction> Actions;
 
+    public bool Loaded = true;
+
     public string InputName;
 
     // Use this for initialization
@@ -27,6 +29,10 @@ public class CharacterManager : MonoBehaviour
         SwitchState(PlayerState.Grounded);
         AddAction(new MoveAction());
         AddAction(new LookAction());
+
+        AddAction(new ReloadAction());
+        AddAction(new FireAction());
+        AddAction(new DodgeAction());
     }
 
     // Update is called once per frame
@@ -92,6 +98,11 @@ public class CharacterManager : MonoBehaviour
         Actions.Add(a.PA, a);
         a.Setup(this);
     }
+
+    public GameObject SpawnObject(GameObject o,Vector3 where, Quaternion rot)
+    {
+        return (GameObject)Instantiate(o,where,rot);
+    }
 }
 
 public enum PlayerAction
@@ -103,15 +114,12 @@ public enum PlayerAction
     Reload,
     Dodge,
     Slam,
-    Fall
 }
 
 public enum PlayerState
 {
     None,
     Grounded,
-    Jumping,
-    Firing,
     Dodging,
     Reloading,
     Slamming

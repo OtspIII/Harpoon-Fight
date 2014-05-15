@@ -9,7 +9,7 @@ namespace HF.Character
         public GroundedState()
         {
             PS = PlayerState.Grounded;
-            Actions = new List<PlayerAction> { PlayerAction.LookAround, PlayerAction.Move, PlayerAction.Fall,
+            Actions = new List<PlayerAction> { PlayerAction.LookAround, PlayerAction.Move,
                 PlayerAction.Fire, PlayerAction.Dodge, PlayerAction.Reload, PlayerAction.Slam };
         }
     }
