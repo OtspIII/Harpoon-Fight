@@ -30,6 +30,7 @@ public class CharacterManager : MonoBehaviour
         AddState(new GroundedState());
         AddState(new ReloadingState());
         AddState(new DodgingState());
+        AddState(new DeadState());
         SwitchState(PlayerState.Grounded);
         AddAction(new MoveAction());
         AddAction(new LookAction());
@@ -107,6 +108,15 @@ public class CharacterManager : MonoBehaviour
     {
         return (GameObject)Instantiate(o,where,rot);
     }
+
+    public void OnCollisionEnter(Collision c)
+    {
+        if ((gameObject.layer == 9 && c.gameObject.layer == 12) || (gameObject.layer == 11 && c.gameObject.layer == 10))
+        {
+            SwitchState(PlayerState.Dead);
+            Debug.Log("DEAD");
+        }
+    }
 }
 
 public enum PlayerAction
@@ -126,5 +136,6 @@ public enum PlayerState
     Grounded,
     Dodging,
     Reloading,
-    Slamming
+    Slamming,
+    Dead
 }

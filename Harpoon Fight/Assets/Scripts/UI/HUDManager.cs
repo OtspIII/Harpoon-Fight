@@ -5,6 +5,8 @@ public class HUDManager : MonoBehaviour
 {
 
     public UI2DSprite Hands;
+    public UILabel YOUDIED;
+
     public HandsState State { get; private set; }
     public Sprite Loaded;
     public Sprite Unloaded;
@@ -14,6 +16,7 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         State = HandsState.Loaded;
+        YOUDIED.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,6 +28,8 @@ public class HUDManager : MonoBehaviour
     public void SetHandsState(HandsState state)
     {
         State = state;
+        YOUDIED.gameObject.SetActive(false);
+        Hands.gameObject.SetActive(true);
         switch (state)
         {
             case HandsState.Loaded:
@@ -36,6 +41,10 @@ public class HUDManager : MonoBehaviour
             case HandsState.Reloading:
                 Hands.sprite2D = Reloading;
                 break;
+            case HandsState.Dead:
+                YOUDIED.gameObject.SetActive(true);
+                Hands.gameObject.SetActive(false);
+                break;
         }
     }
 }
@@ -44,5 +53,6 @@ public enum HandsState
 {
     Loaded,
     Empty,
-    Reloading
+    Reloading,
+    Dead
 }
