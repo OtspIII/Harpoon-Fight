@@ -189,6 +189,7 @@
     <Compile Include="Assets\Scripts\Character Management\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\Character Management\CharacterMotor.cs" />
     <Compile Include="Assets\Scripts\Character Management\CharacterState.cs" />
+    <Compile Include="Assets\Scripts\Character Management\States\DodgingState.cs" />
     <Compile Include="Assets\Scripts\Character Management\States\ReloadingState.cs" />
     <Compile Include="Assets\Scripts\Character Management\States\GroundedState.cs" />
     <Compile Include="Assets\Scripts\Game Stuff\GameStarter.cs" />

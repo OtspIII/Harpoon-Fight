@@ -8,6 +8,7 @@ public class CharacterManager : MonoBehaviour
 
     public GameObject Body;
     public GameObject Eyes;
+    public CharacterController CC;
     public CharacterMotor Motor;
     public HUDManager HUD;
 
@@ -28,6 +29,7 @@ public class CharacterManager : MonoBehaviour
         Actions = new Dictionary<PlayerAction, CharacterAction>();
         AddState(new GroundedState());
         AddState(new ReloadingState());
+        AddState(new DodgingState());
         SwitchState(PlayerState.Grounded);
         AddAction(new MoveAction());
         AddAction(new LookAction());

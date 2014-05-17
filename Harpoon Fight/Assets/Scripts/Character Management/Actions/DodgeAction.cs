@@ -13,7 +13,9 @@ namespace HF.Character
 
         public override void Execute()
         {
-            
+            if (!C.GetButton("Dodge") || (C.GetInput("Horizontal") == 0 && C.GetInput("Vertical") == 0))
+                return;
+            C.SwitchState(PlayerState.Dodging);
         }
     }
 }

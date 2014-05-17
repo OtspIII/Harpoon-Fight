@@ -27,15 +27,6 @@ namespace HF.Character
             C.Motor.movement.maxSidewaysSpeed = 0.001f;
             SavedMB = C.Motor.movement.maxBackwardsSpeed;
             C.Motor.movement.maxBackwardsSpeed = 0.001f;
-            //Vector3 vel = C.Motor.movement.velocity;
-            //vel.x = 0;
-            //vel.z = 0;
-            //C.Motor.movement.velocity = vel;
-            ////vel = C.Motor.movement.frameVelocity;
-            ////vel.x = 0;
-            ////vel.z = 0;
-            //C.Motor.movement.frameVelocity = Vector3.zero;
-            //C.Motor.movement.frameVelocity
             Timer = TimerMax;
             C.HUD.SetHandsState(HandsState.Reloading);
         }
