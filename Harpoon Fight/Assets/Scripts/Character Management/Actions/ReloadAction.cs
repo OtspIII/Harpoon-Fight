@@ -14,7 +14,19 @@ namespace HF.Character
 
         public override void Execute()
         {
-            
+            if (!C.GetButton("Reload"))
+                return;
+            if (C.Loaded)
+            {
+                CantReloadFeedback();
+                return;
+            }
+            C.SwitchState(PlayerState.Reloading);
+        }
+
+        public void CantReloadFeedback()
+        {
+
         }
     }
 }

@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HUDManager : MonoBehaviour {
+public class HUDManager : MonoBehaviour
+{
 
     public UI2DSprite Hands;
-    HandsState State;
+    public HandsState State { get; private set; }
     public Sprite Loaded;
     public Sprite Unloaded;
     public Sprite Reloading;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         State = HandsState.Loaded;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void SetHandsState(HandsState state)
     {

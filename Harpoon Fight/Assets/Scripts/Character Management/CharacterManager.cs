@@ -27,6 +27,7 @@ public class CharacterManager : MonoBehaviour
         States = new Dictionary<PlayerState, CharacterState>();
         Actions = new Dictionary<PlayerAction, CharacterAction>();
         AddState(new GroundedState());
+        AddState(new ReloadingState());
         SwitchState(PlayerState.Grounded);
         AddAction(new MoveAction());
         AddAction(new LookAction());
