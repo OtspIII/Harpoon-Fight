@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
     public GameObject Body;
     public GameObject Eyes;
     public CharacterMotor Motor;
+    public HUDManager HUD;
 
     public CharacterState State;
 

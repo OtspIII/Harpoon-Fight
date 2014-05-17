@@ -22,10 +22,15 @@ namespace HF.Character
                 return;
             }
             GameObject h = C.SpawnObject(HF.Library.GetSpawnable(Spawnable.Harpoon), C.transform.position, C.transform.rotation);
+            Vector3 rot = h.transform.rotation.eulerAngles;
+            rot.x += 90;
+
+            h.transform.rotation = Quaternion.Euler(rot);
             //GameObject h = C.SpawnObject(HF.Library.GetSpawnable(Spawnable.Harpoon), C.transform.position, C.transform.rotation + new Quaternion(90, 0, 0, 0));
             h.rigidbody.velocity = C.transform.forward * 10f;
             h.gameObject.layer = C.gameObject.layer + 1;
             C.Loaded = false;
+            C.HUD.SetHandsState(HandsState.Empty);
         }
 
         public void CantFireFeedback()

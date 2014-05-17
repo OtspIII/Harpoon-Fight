@@ -192,6 +192,7 @@
      <Compile Include="Assets\Scripts\Game Stuff\GameStarter.cs" />
      <Compile Include="Assets\Scripts\Statics\Library.cs" />
      <Compile Include="Assets\Scripts\Things\SpawnableObject.cs" />
+     <Compile Include="Assets\Scripts\UI\HUDManager.cs" />
      <Compile Include="Assets\iTween\Plugins\iTween.cs" />
      <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
      <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
