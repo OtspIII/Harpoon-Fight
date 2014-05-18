@@ -4,19 +4,18 @@ using System.Collections.Generic;
 
 namespace HF.Character
 {
-    public class DeadState : CharacterState
+    public class LoseState : CharacterState
     {
-        public DeadState()
+        public LoseState()
         {
-            PS = PlayerState.Dead;
+            PS = PlayerState.Lost;
             Actions = new List<PlayerAction> { };
         }
 
         public override void Start()
         {
-            C.HUD.SetHandsState(HandsState.Dead);
-            C.Anim.SetTrigger("Die");
-            HF.Library.GM.ModeCon.HearDeath(C.Slot);
+            Debug.Log("LOSE STATE");
+            C.HUD.SetHandsState(HandsState.Lost);
         }
     }
 }

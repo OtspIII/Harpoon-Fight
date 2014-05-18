@@ -73,6 +73,8 @@ public class CharacterManager : MonoBehaviour
         AddState(new ReloadingState());
         AddState(new DodgingState());
         AddState(new DeadState());
+        AddState(new WinState());
+        AddState(new LoseState());
         SwitchState(PlayerState.Grounded);
         AddAction(new MoveAction());
         AddAction(new LookAction());
@@ -168,5 +170,7 @@ public enum PlayerState
     Dodging,
     Reloading,
     Slamming,
-    Dead
+    Dead,
+    Won,
+    Lost
 }

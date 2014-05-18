@@ -11,6 +11,11 @@ public class GameMasterManager : MonoBehaviour
     public HUDManager HUD2;
     public GameObject Eyes1;
     public GameObject Eyes2;
+    public GameMode Mode;
+
+    public CharacterManager CharacterOne { get; private set; }
+    public CharacterManager CharacterTwo { get; private set; }
+    public GameModeController ModeCon { get; private set; }
 
     // Use this for initialization
     void Start()
@@ -21,12 +26,14 @@ public class GameMasterManager : MonoBehaviour
             (RoomManager)((GameObject)Instantiate(HF.Library.GetRoom(Room), Vector3.zero, Quaternion.identity)).GetComponent("RoomManager");
         SpawnerController s1 = room.Spawners[0];
         SpawnerController s2 = room.Spawners[1];
-        CharacterManager c1 = (CharacterManager)((GameObject)Instantiate(HF.Library.Character.gameObject, s1.transform.position,
+        CharacterOne = (CharacterManager)((GameObject)Instantiate(HF.Library.Character.gameObject, s1.transform.position,
             s1.transform.rotation)).GetComponent("CharacterManager");
-        CharacterManager c2 = (CharacterManager)((GameObject)Instantiate(HF.Library.Character.gameObject, s2.transform.position,
+        CharacterTwo = (CharacterManager)((GameObject)Instantiate(HF.Library.Character.gameObject, s2.transform.position,
             s2.transform.rotation)).GetComponent("CharacterManager");
-        c1.Setup(P1Controls, PlayerSlot.PlayerOne);
-        c2.Setup(P2Controls, PlayerSlot.PlayerTwo);
+        CharacterOne.Setup(P1Controls, PlayerSlot.PlayerOne);
+        CharacterTwo.Setup(P2Controls, PlayerSlot.PlayerTwo);
+        ModeCon = HF.Library.GetMode(GameMode.Deathmatch);
+        ModeCon.Setup(this);
     }
 
     // Update is called once per frame

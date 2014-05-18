@@ -27,4 +27,9 @@ namespace HF
         Fire,
         Reload
     }
+
+    public enum GameMode
+    {
+        Deathmatch
+    }
 }

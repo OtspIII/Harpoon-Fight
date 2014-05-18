@@ -8,6 +8,7 @@ namespace HF
 {
     public static class Library
     {
+        public static GameMasterManager GM { get; private set; }
         public static CharacterManager Character { get; private set; }
         public static GameObject EyesOne { get; private set; }
         public static GameObject EyesTwo { get; private set; }
@@ -16,10 +17,12 @@ namespace HF
         private static Dictionary<Spawnable, SpawnableObject> Spawnables;
         private static Dictionary<RoomType, RoomManager> Rooms;
         private static Dictionary<SoundClip, AudioClip> SoundClips;
+        private static Dictionary<GameMode, GameModeController> GameModes;
 
-        public static void Initialize(CharacterManager cm, GameObject e1, GameObject e2, HUDManager hud1, HUDManager hud2,
-            List<SpawnableObject> spawnables, List<RoomManager> rooms)
+        public static void Initialize(GameMasterManager gm, CharacterManager cm, GameObject e1, GameObject e2, HUDManager hud1, HUDManager hud2,
+            List<SpawnableObject> spawnables, List<RoomManager> rooms, List<GameModeController> modes)
         {
+            GM = gm;
             Character = cm;
             EyesOne = e1;
             EyesTwo = e2;
@@ -39,6 +42,14 @@ namespace HF
                 if (Rooms.ContainsKey(r.Type))
                     continue;
                 Rooms.Add(r.Type, r);
+            }
+
+            GameModes = new Dictionary<GameMode, GameModeController>();
+            foreach (GameModeController m in modes)
+            {
+                if (GameModes.ContainsKey(m.Type))
+                    continue;
+                GameModes.Add(m.Type, m);
             }
 
             SoundClips = new Dictionary<SoundClip, AudioClip>();
@@ -65,6 +76,13 @@ namespace HF
             if (!Rooms.ContainsKey(r))
                 return null;
             return Rooms[r].gameObject;
+        }
+
+        public static GameModeController GetMode(GameMode m)
+        {
+            if (!GameModes.ContainsKey(m))
+                return null;
+            return GameModes[m];
         }
 
         public static AudioClip GetSound(SoundClip s)

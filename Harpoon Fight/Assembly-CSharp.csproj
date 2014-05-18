@@ -192,8 +192,12 @@
      <Compile Include="Assets\Scripts\Character Management\States\DeadState.cs" />
      <Compile Include="Assets\Scripts\Character Management\States\DodgingState.cs" />
      <Compile Include="Assets\Scripts\Character Management\States\GroundedState.cs" />
+     <Compile Include="Assets\Scripts\Character Management\States\LoseState.cs" />
      <Compile Include="Assets\Scripts\Character Management\States\ReloadingState.cs" />
+     <Compile Include="Assets\Scripts\Character Management\States\WinState.cs" />
+     <Compile Include="Assets\Scripts\Game Stuff\Game Modes\DeathmatchMode.cs" />
      <Compile Include="Assets\Scripts\Game Stuff\GameMasterManager.cs" />
+     <Compile Include="Assets\Scripts\Game Stuff\GameModeController.cs" />
      <Compile Include="Assets\Scripts\Game Stuff\GameStarter.cs" />
      <Compile Include="Assets\Scripts\Game Stuff\RoomManager.cs" />
      <Compile Include="Assets\Scripts\Game Stuff\SoundManager.cs" />

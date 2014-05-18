@@ -4,19 +4,18 @@ using System.Collections.Generic;
 
 namespace HF.Character
 {
-    public class DeadState : CharacterState
+    public class WinState : CharacterState
     {
-        public DeadState()
+        public WinState()
         {
-            PS = PlayerState.Dead;
+            PS = PlayerState.Won;
             Actions = new List<PlayerAction> { };
         }
 
         public override void Start()
         {
-            C.HUD.SetHandsState(HandsState.Dead);
-            C.Anim.SetTrigger("Die");
-            HF.Library.GM.ModeCon.HearDeath(C.Slot);
+            Debug.Log("WIN STATE");
+            C.HUD.SetHandsState(HandsState.Won);
         }
     }
 }

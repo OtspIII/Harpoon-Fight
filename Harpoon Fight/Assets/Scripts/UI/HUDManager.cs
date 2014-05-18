@@ -43,6 +43,17 @@ public class HUDManager : MonoBehaviour
                 break;
             case HandsState.Dead:
                 YOUDIED.gameObject.SetActive(true);
+                YOUDIED.text = "YOU DIED";
+                Hands.gameObject.SetActive(false);
+                break;
+            case HandsState.Won:
+                YOUDIED.gameObject.SetActive(true);
+                YOUDIED.text = "YOU WON";
+                Hands.gameObject.SetActive(false);
+                break;
+            case HandsState.Lost:
+                YOUDIED.gameObject.SetActive(true);
+                YOUDIED.text = "YOU LOST";
                 Hands.gameObject.SetActive(false);
                 break;
         }
@@ -54,5 +65,7 @@ public enum HandsState
     Loaded,
     Empty,
     Reloading,
-    Dead
+    Dead,
+    Won,
+    Lost
 }
