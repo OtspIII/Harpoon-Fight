@@ -8,7 +8,7 @@ namespace HF.Character
     {
         public LoseState()
         {
-            PS = PlayerState.Lost;
+            Type = PlayerState.Lost;
             Actions = new List<PlayerAction> { };
         }
 

@@ -8,7 +8,7 @@ namespace HF.Character
     {
         public WinState()
         {
-            PS = PlayerState.Won;
+            Type = PlayerState.Won;
             Actions = new List<PlayerAction> { };
         }
 

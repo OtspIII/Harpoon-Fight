@@ -8,7 +8,7 @@ namespace HF.Character
     {
         public CharacterManager C;
         public List<PlayerAction> Actions;
-        public PlayerState PS = PlayerState.None;
+        public PlayerState Type = PlayerState.None;
 
         public virtual CharacterState Setup(CharacterManager c)
         {

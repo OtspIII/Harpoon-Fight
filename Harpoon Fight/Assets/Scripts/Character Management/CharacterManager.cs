@@ -123,9 +123,9 @@ public class CharacterManager : MonoBehaviour
 
     public void AddState(CharacterState s)
     {
-        if (States.ContainsKey(s.PS))
+        if (States.ContainsKey(s.Type))
             return;
-        States.Add(s.PS, s);
+        States.Add(s.Type, s);
         s.Setup(this);
     }
 
@@ -146,9 +146,18 @@ public class CharacterManager : MonoBehaviour
     {
         if ((gameObject.layer == 9 && c.gameObject.layer == 12) || (gameObject.layer == 11 && c.gameObject.layer == 10))
         {
-            SwitchState(PlayerState.Dead);
-            Debug.Log("DEAD");
+            if (State.Type != PlayerState.Dead)
+            {
+                SwitchState(PlayerState.Dead);
+            }
         }
+    }
+
+    public void ComeAlive()
+    {
+        Loaded = true;
+        SwitchState(PlayerState.Grounded);
+        HUD.SetHandsState(HandsState.Loaded);
     }
 }
 

@@ -16,16 +16,17 @@ public class GameMasterManager : MonoBehaviour
     public CharacterManager CharacterOne { get; private set; }
     public CharacterManager CharacterTwo { get; private set; }
     public GameModeController ModeCon { get; private set; }
+    public RoomManager RoomMan { get; private set; }
 
     // Use this for initialization
     void Start()
     {
         Screen.lockCursor = true;
         Application.targetFrameRate = 60;
-        RoomManager room = 
+        RoomMan = 
             (RoomManager)((GameObject)Instantiate(HF.Library.GetRoom(Room), Vector3.zero, Quaternion.identity)).GetComponent("RoomManager");
-        SpawnerController s1 = room.Spawners[0];
-        SpawnerController s2 = room.Spawners[1];
+        SpawnerController s1 = RoomMan.Spawners[0];
+        SpawnerController s2 = RoomMan.Spawners[1];
         CharacterOne = (CharacterManager)((GameObject)Instantiate(HF.Library.Character.gameObject, s1.transform.position,
             s1.transform.rotation)).GetComponent("CharacterManager");
         CharacterTwo = (CharacterManager)((GameObject)Instantiate(HF.Library.Character.gameObject, s2.transform.position,

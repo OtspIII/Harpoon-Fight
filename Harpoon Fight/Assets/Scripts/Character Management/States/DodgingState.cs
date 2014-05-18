@@ -17,7 +17,7 @@ namespace HF.Character
 
         public DodgingState()
         {
-            PS = PlayerState.Dodging;
+            Type = PlayerState.Dodging;
             Actions = new List<PlayerAction> { PlayerAction.LookAround, PlayerAction.Fire };
         }
 
@@ -36,7 +36,6 @@ namespace HF.Character
             Vector3 dir = new Vector3(DashSpeed * right, 0, DashSpeed * forward);
             dir = C.transform.TransformDirection(dir);
             DashDir = dir;
-            Timer = TimerMax;
             C.Anim.SetTrigger("Dive");
         }
 

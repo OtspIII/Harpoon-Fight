@@ -15,7 +15,7 @@ namespace HF.Character
 
         public ReloadingState()
         {
-            PS = PlayerState.Reloading;
+            Type = PlayerState.Reloading;
             Actions = new List<PlayerAction> { PlayerAction.LookAround };
         }
 

@@ -8,9 +8,14 @@ namespace HF.Character
     {
         public GroundedState()
         {
-            PS = PlayerState.Grounded;
+            Type = PlayerState.Grounded;
             Actions = new List<PlayerAction> { PlayerAction.LookAround, PlayerAction.Move,
                 PlayerAction.Fire, PlayerAction.Dodge, PlayerAction.Reload, PlayerAction.Slam };
+        }
+
+        public override void Start()
+        {
+            C.Anim.SetTrigger("Idle");
         }
     }
 }
