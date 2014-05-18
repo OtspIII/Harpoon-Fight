@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
     public CharacterController CC;
     public CharacterMotor Motor;
     public HUDManager HUD;
+    public Animator Anim;
 
     public CharacterState State;
 
@@ -109,7 +110,7 @@ public class CharacterManager : MonoBehaviour
         return (GameObject)Instantiate(o,where,rot);
     }
 
-    public void OnCollisionEnter(Collision c)
+    public void GetHit(Collision c)
     {
         if ((gameObject.layer == 9 && c.gameObject.layer == 12) || (gameObject.layer == 11 && c.gameObject.layer == 10))
         {

@@ -29,6 +29,7 @@ namespace HF.Character
             C.Motor.movement.maxBackwardsSpeed = 0.001f;
             Timer = TimerMax;
             C.HUD.SetHandsState(HandsState.Reloading);
+            C.Anim.SetTrigger("Reload");
         }
 
         public override void Execute()

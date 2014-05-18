@@ -15,6 +15,7 @@ namespace HF.Character
         public override void Start()
         {
             C.HUD.SetHandsState(HandsState.Dead);
+            C.Anim.SetTrigger("Die");
         }
     }
 }

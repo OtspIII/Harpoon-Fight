@@ -184,6 +184,7 @@
      <Compile Include="Assets\Scripts\Character Management\Actions\LookAction.cs" />
      <Compile Include="Assets\Scripts\Character Management\Actions\MoveAction.cs" />
      <Compile Include="Assets\Scripts\Character Management\Actions\ReloadAction.cs" />
+     <Compile Include="Assets\Scripts\Character Management\BodyController.cs" />
      <Compile Include="Assets\Scripts\Character Management\CharacterAction.cs" />
      <Compile Include="Assets\Scripts\Character Management\CharacterManager.cs" />
      <Compile Include="Assets\Scripts\Character Management\CharacterMotor.cs" />

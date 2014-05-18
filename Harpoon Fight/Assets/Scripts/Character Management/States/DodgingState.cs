@@ -37,6 +37,7 @@ namespace HF.Character
             dir = C.transform.TransformDirection(dir);
             DashDir = dir;
             Timer = TimerMax;
+            C.Anim.SetTrigger("Dive");
         }
 
         public override void Execute()

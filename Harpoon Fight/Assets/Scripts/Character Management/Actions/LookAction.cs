@@ -23,7 +23,7 @@ namespace HF.Character
 
         public override void Execute()
         {
-            C.Body.transform.Rotate(0, C.GetInput("Aim X") * sensitivityX, 0);
+            C.gameObject.transform.Rotate(0, C.GetInput("Aim X") * sensitivityX, 0);
 
             rotationY += C.GetInput("Aim Y") * sensitivityY;
             rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
