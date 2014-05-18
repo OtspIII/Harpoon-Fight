@@ -193,7 +193,11 @@
      <Compile Include="Assets\Scripts\Character Management\States\DodgingState.cs" />
      <Compile Include="Assets\Scripts\Character Management\States\GroundedState.cs" />
      <Compile Include="Assets\Scripts\Character Management\States\ReloadingState.cs" />
+     <Compile Include="Assets\Scripts\Game Stuff\GameMasterManager.cs" />
      <Compile Include="Assets\Scripts\Game Stuff\GameStarter.cs" />
+     <Compile Include="Assets\Scripts\Game Stuff\RoomManager.cs" />
+     <Compile Include="Assets\Scripts\Game Stuff\SpawnerController.cs" />
+     <Compile Include="Assets\Scripts\Statics\Enums.cs" />
      <Compile Include="Assets\Scripts\Statics\Library.cs" />
      <Compile Include="Assets\Scripts\Things\SpawnableObject.cs" />
      <Compile Include="Assets\Scripts\UI\HUDManager.cs" />

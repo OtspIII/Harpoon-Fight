@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using HF.Character;
+using HF;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -10,22 +11,60 @@ public class CharacterManager : MonoBehaviour
     public GameObject Eyes;
     public CharacterController CC;
     public CharacterMotor Motor;
-    public HUDManager HUD;
+    public HUDManager HUD { get; private set; }
     public Animator Anim;
 
     public CharacterState State;
 
     private Dictionary<PlayerState, CharacterState> States;
-    private Dictionary<PlayerAction,CharacterAction> Actions;
+    private Dictionary<PlayerAction, CharacterAction> Actions;
 
     public bool Loaded = true;
 
-    public string InputName;
+    string InputName;
 
     // Use this for initialization
     void Start()
     {
-        Setup(new List<CharacterAction> { });
+        
+    }
+
+    public void Setup(ControlScheme con, PlayerSlot ps)
+    {
+        switch (con)
+        {
+            case ControlScheme.MouseKeyboard:
+                InputName = "MK";
+                break;
+            case ControlScheme.JoystickOne:
+                InputName = "J1";
+                break;
+        }
+        GameObject eyes = null;
+        HUDManager hud = null;
+        int layer = 0;
+        switch (ps)
+        {
+            case PlayerSlot.PlayerOne:
+                eyes = HF.Library.EyesOne;
+                hud = HF.Library.HUDOne;
+                layer = 9;
+                break;
+            case PlayerSlot.PlayerTwo:
+                eyes = HF.Library.EyesTwo;
+                hud = HF.Library.HUDTwo;
+                layer = 11;
+                break;
+        }
+        eyes.transform.parent = gameObject.transform;
+        eyes.transform.localPosition = new Vector3(0, 0.5f, 0);
+        eyes.transform.localRotation = Quaternion.identity;
+        Eyes = eyes;
+        HUD = hud;
+        gameObject.layer = layer;
+        Body.layer = layer;
+        foreach (Transform t in Body.transform)
+            t.gameObject.layer = layer;
         States = new Dictionary<PlayerState, CharacterState>();
         Actions = new Dictionary<PlayerAction, CharacterAction>();
         AddState(new GroundedState());
@@ -48,17 +87,6 @@ public class CharacterManager : MonoBehaviour
         foreach (PlayerAction a in State.Actions)
         {
             ExecuteAction(a);
-        }
-    }
-
-    public void Setup(List<CharacterAction> acts)
-    {
-        foreach (CharacterAction a in acts)
-        {
-            if (a.PA == PlayerAction.None || Actions.ContainsKey(a.PA))
-                continue;
-            Actions.Add(a.PA,a);
-            a.Setup(this);
         }
     }
 
@@ -105,9 +133,9 @@ public class CharacterManager : MonoBehaviour
         a.Setup(this);
     }
 
-    public GameObject SpawnObject(GameObject o,Vector3 where, Quaternion rot)
+    public GameObject SpawnObject(GameObject o, Vector3 where, Quaternion rot)
     {
-        return (GameObject)Instantiate(o,where,rot);
+        return (GameObject)Instantiate(o, where, rot);
     }
 
     public void GetHit(Collision c)

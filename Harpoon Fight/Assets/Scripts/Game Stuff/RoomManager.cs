@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HF;
+using System.Collections.Generic;
 
-public class BodyController : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
 
-    public CharacterManager Character;
+    public RoomType Type;
+    public List<SpawnerController> Spawners;
 
     // Use this for initialization
     void Start()
@@ -16,10 +19,5 @@ public class BodyController : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public void OnCollisionEnter(Collision c)
-    {
-        Character.GetHit(c);
     }
 }
