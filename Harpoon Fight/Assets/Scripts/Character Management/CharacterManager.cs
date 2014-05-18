@@ -15,6 +15,7 @@ public class CharacterManager : MonoBehaviour
     public Animator Anim;
 
     public CharacterState State;
+    public PlayerSlot Slot { get; private set; }
 
     private Dictionary<PlayerState, CharacterState> States;
     private Dictionary<PlayerAction, CharacterAction> Actions;
@@ -31,6 +32,7 @@ public class CharacterManager : MonoBehaviour
 
     public void Setup(ControlScheme con, PlayerSlot ps)
     {
+        Slot = ps;
         switch (con)
         {
             case ControlScheme.MouseKeyboard:

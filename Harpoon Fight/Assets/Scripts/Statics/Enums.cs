@@ -22,4 +22,9 @@ namespace HF
         PlayerTwo
     }
 
+    public enum SoundClip
+    {
+        Fire,
+        Reload
+    }
 }

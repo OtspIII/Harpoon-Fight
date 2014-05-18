@@ -31,6 +31,7 @@ namespace HF.Character
             h.gameObject.layer = C.gameObject.layer + 1;
             C.Loaded = false;
             C.HUD.SetHandsState(HandsState.Empty);
+            HF.Sounds.PlaySound(C.Slot, SoundClip.Fire);
         }
 
         public void CantFireFeedback()

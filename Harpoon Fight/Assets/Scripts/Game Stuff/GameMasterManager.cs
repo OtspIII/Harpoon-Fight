@@ -15,6 +15,8 @@ public class GameMasterManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Screen.lockCursor = true;
+        Application.targetFrameRate = 60;
         RoomManager room = 
             (RoomManager)((GameObject)Instantiate(HF.Library.GetRoom(Room), Vector3.zero, Quaternion.identity)).GetComponent("RoomManager");
         SpawnerController s1 = room.Spawners[0];

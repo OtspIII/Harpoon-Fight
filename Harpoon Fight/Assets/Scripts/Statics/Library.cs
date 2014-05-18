@@ -15,6 +15,7 @@ namespace HF
         public static HUDManager HUDTwo { get; private set; }
         private static Dictionary<Spawnable, SpawnableObject> Spawnables;
         private static Dictionary<RoomType, RoomManager> Rooms;
+        private static Dictionary<SoundClip, AudioClip> SoundClips;
 
         public static void Initialize(CharacterManager cm, GameObject e1, GameObject e2, HUDManager hud1, HUDManager hud2,
             List<SpawnableObject> spawnables, List<RoomManager> rooms)
@@ -40,6 +41,17 @@ namespace HF
                 Rooms.Add(r.Type, r);
             }
 
+            SoundClips = new Dictionary<SoundClip, AudioClip>();
+            AddSound(SoundClip.Fire, "15901__someonesilly__knock");
+            AddSound(SoundClip.Reload, "11100__jimpurbrick__fastmidtremelorise");
+        }
+
+        private static void AddSound(SoundClip sc, string file)
+        {
+            if (SoundClips.ContainsKey(sc) || file == "")
+                return;
+            AudioClip ac = Resources.Load<AudioClip>("Sounds/" + file);
+            SoundClips.Add(sc, ac);
         }
 
         public static UnityEngine.GameObject GetSpawnable(Spawnable s){
@@ -53,6 +65,13 @@ namespace HF
             if (!Rooms.ContainsKey(r))
                 return null;
             return Rooms[r].gameObject;
+        }
+
+        public static AudioClip GetSound(SoundClip s)
+        {
+            if (!SoundClips.ContainsKey(s))
+                return null;
+            return SoundClips[s];
         }
     }
 

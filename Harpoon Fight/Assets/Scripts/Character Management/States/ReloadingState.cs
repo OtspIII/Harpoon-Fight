@@ -30,6 +30,7 @@ namespace HF.Character
             Timer = TimerMax;
             C.HUD.SetHandsState(HandsState.Reloading);
             C.Anim.SetTrigger("Reload");
+            HF.Sounds.PlaySound(C.Slot, SoundClip.Reload);
         }
 
         public override void Execute()
