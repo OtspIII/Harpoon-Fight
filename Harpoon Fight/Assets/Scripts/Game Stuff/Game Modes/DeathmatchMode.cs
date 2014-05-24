@@ -23,6 +23,7 @@ namespace HF.Modes
             {
                 case PlayerSlot.PlayerOne:
                     P2Score++;
+                    HF.Library.GM.CharacterTwo.HUD.SetScore(P2Score);
                     if (P2Score >= WinScore)
                     {
                         SetWinner(PlayerSlot.PlayerTwo);
@@ -30,6 +31,7 @@ namespace HF.Modes
                     break;
                 case PlayerSlot.PlayerTwo:
                     P1Score++;
+                    HF.Library.GM.CharacterOne.HUD.SetScore(P1Score);
                     if (P1Score >= WinScore)
                     {
                         SetWinner(PlayerSlot.PlayerOne);

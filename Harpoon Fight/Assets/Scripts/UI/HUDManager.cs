@@ -6,6 +6,7 @@ public class HUDManager : MonoBehaviour
 
     public UI2DSprite Hands;
     public UILabel YOUDIED;
+    public UILabel Score;
 
     public HandsState State { get; private set; }
     public Sprite Loaded;
@@ -17,6 +18,7 @@ public class HUDManager : MonoBehaviour
     {
         State = HandsState.Loaded;
         YOUDIED.gameObject.SetActive(false);
+        //Score.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,6 +59,11 @@ public class HUDManager : MonoBehaviour
                 Hands.gameObject.SetActive(false);
                 break;
         }
+    }
+
+    public void SetScore(int score)
+    {
+        Score.text = score.ToString();
     }
 }
 
