@@ -21,13 +21,23 @@ public class RoomManager : MonoBehaviour
 
     }
 
-    public virtual void RespawnPlayer(CharacterManager who)
+    public virtual SpawnerController GetSpawner()
     {
-        who.ComeAlive();
-        int n = 0;
-        if (who.Slot == PlayerSlot.PlayerTwo)
-            n = 1;
-        who.gameObject.transform.position = Spawners[n].transform.position;
-        who.gameObject.transform.rotation = Spawners[n].transform.rotation;
+        return GetSpawner(0);
+    }
+
+    public virtual SpawnerController GetSpawner(int n)
+    {
+        if (Spawners.Count == 0)
+        {
+            Debug.Log("ERROR: NO SPAWNERS!");
+            return null;
+        }
+        else if (Spawners.Count <= n)
+        {
+            Debug.Log("ERROR: Requested too big a number for a spawner!");
+            return Spawners[0];
+        }
+        return Spawners[n];
     }
 }

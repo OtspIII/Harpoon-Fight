@@ -5,9 +5,16 @@ using System.Text;
 
 namespace HF
 {
+    public enum StageType
+    {
+        Boring,
+        Lane5
+    }
+    
     public enum RoomType
     {
-        Boring
+        Boring,
+        Lane5
     }
 
     public enum ControlScheme

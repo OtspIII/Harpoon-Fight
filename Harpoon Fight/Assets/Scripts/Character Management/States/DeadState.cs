@@ -27,7 +27,7 @@ namespace HF.Character
         {
             Timer -= Time.deltaTime;
             if (Timer <= 0)
-                HF.Library.GM.RoomMan.RespawnPlayer(C);
+                HF.Library.GM.StageMan.RespawnPlayer(C);
         }
 
         public override void End()

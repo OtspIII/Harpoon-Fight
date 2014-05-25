@@ -137,9 +137,9 @@ public class CharacterManager : MonoBehaviour
         a.Setup(this);
     }
 
-    public GameObject SpawnObject(GameObject o, Vector3 where, Quaternion rot)
+    public GameObject SpawnObject(SpawnableObject o, Vector3 where, Quaternion rot)
     {
-        return (GameObject)Instantiate(o, where, rot);
+        return (GameObject)Instantiate(o.gameObject, where, rot);
     }
 
     public void GetHit(Collision c)

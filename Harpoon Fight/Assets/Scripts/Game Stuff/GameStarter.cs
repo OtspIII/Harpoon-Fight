@@ -16,13 +16,16 @@ public class GameStarter : MonoBehaviour
     public List<SpawnableObject> Spawnables;
     public List<RoomManager> Rooms;
     private List<GameModeController> Modes;
+    private List<StageManager> Stages;
 
     // Use this for initialization
     void Awake()
     {
         Modes = new List<GameModeController>();
         Modes.Add(new DeathmatchMode(3));
-        HF.Library.Initialize(GM, Character, Eyes1, Eyes2, HUD1, HUD2, Spawnables, Rooms, Modes);
+        Stages = new List<StageManager>();
+        Stages.Add(new HF.Stages.BoringStage());
+        HF.Library.Initialize(GM, Character, Eyes1, Eyes2, HUD1, HUD2, Spawnables, Rooms, Modes, Stages);
         HF.Sounds.Initialize(Sounds);
     }
 

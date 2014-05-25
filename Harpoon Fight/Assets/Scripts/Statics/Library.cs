@@ -18,9 +18,10 @@ namespace HF
         private static Dictionary<RoomType, RoomManager> Rooms;
         private static Dictionary<SoundClip, AudioClip> SoundClips;
         private static Dictionary<GameMode, GameModeController> GameModes;
+        private static Dictionary<StageType, StageManager> Stages;
 
         public static void Initialize(GameMasterManager gm, CharacterManager cm, GameObject e1, GameObject e2, HUDManager hud1, HUDManager hud2,
-            List<SpawnableObject> spawnables, List<RoomManager> rooms, List<GameModeController> modes)
+            List<SpawnableObject> spawnables, List<RoomManager> rooms, List<GameModeController> modes, List<StageManager> stages)
         {
             GM = gm;
             Character = cm;
@@ -52,6 +53,14 @@ namespace HF
                 GameModes.Add(m.Type, m);
             }
 
+            Stages = new Dictionary<StageType, StageManager>();
+            foreach (StageManager s in stages)
+            {
+                if (Stages.ContainsKey(s.Type))
+                    continue;
+                Stages.Add(s.Type, s);
+            }
+
             SoundClips = new Dictionary<SoundClip, AudioClip>();
             AddSound(SoundClip.Fire, "15901__someonesilly__knock");
             AddSound(SoundClip.Reload, "11100__jimpurbrick__fastmidtremelorise");
@@ -65,17 +74,17 @@ namespace HF
             SoundClips.Add(sc, ac);
         }
 
-        public static UnityEngine.GameObject GetSpawnable(Spawnable s){
+        public static SpawnableObject GetSpawnable(Spawnable s){
             if (!Spawnables.ContainsKey(s))
                 return null;
-            return Spawnables[s].gameObject;
+            return Spawnables[s];
         }
 
-        public static UnityEngine.GameObject GetRoom(RoomType r)
+        public static RoomManager GetRoom(RoomType r)
         {
             if (!Rooms.ContainsKey(r))
                 return null;
-            return Rooms[r].gameObject;
+            return Rooms[r];
         }
 
         public static GameModeController GetMode(GameMode m)
@@ -83,6 +92,13 @@ namespace HF
             if (!GameModes.ContainsKey(m))
                 return null;
             return GameModes[m];
+        }
+
+        public static StageManager GetStage(StageType s)
+        {
+            if (!Stages.ContainsKey(s))
+                return null;
+            return Stages[s];
         }
 
         public static AudioClip GetSound(SoundClip s)
