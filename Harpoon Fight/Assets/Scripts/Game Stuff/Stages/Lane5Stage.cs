@@ -28,8 +28,17 @@ namespace HF.Stages
                 {
                     SpawnerController s = room.GetSpawner();
                     Spawners.Add(s);
-                    if (n == 4)
+                    if (n == 0)
+                        room.SpawnObject(Spawnable.RoomWall,new Vector3(-10,0,0),Quaternion.identity);
+                    else
+                    {
                         s.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 270, 0));
+                        room.SpawnObject(Spawnable.RoomWall, new Vector3(10, 0, 0), Quaternion.identity);
+                    }
+                }
+                if (n != 4)
+                {
+                    room.SpawnObject(Spawnable.RoomDoor, new Vector3(10, 0, 0), Quaternion.identity);
                 }
                 Rooms.Add(room);
             }

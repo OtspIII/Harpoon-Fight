@@ -5,6 +5,13 @@ using System.Text;
 
 namespace HF
 {
+    public enum Spawnable
+    {
+        Harpoon,
+        RoomWall,
+        RoomDoor
+    }
+
     public enum StageType
     {
         Boring,
@@ -15,12 +22,6 @@ namespace HF
     {
         Boring,
         CoreRoom
-    }
-
-    public enum SceneryType
-    {
-        RoomWall,
-        RoomDoor
     }
 
     public enum ControlScheme

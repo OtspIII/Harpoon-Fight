@@ -108,8 +108,4 @@ namespace HF
             return SoundClips[s];
         }
     }
-
-    public enum Spawnable{
-        Harpoon
-    }
 }

@@ -40,4 +40,13 @@ public class RoomManager : MonoBehaviour
         }
         return Spawners[n];
     }
+
+    public SpawnableObject SpawnObject(Spawnable what, Vector3 where, Quaternion rot)
+    {
+        SpawnableObject r = (SpawnableObject)((GameObject)Instantiate(HF.Library.GetSpawnable(what).gameObject)).GetComponent("SpawnableObject");
+        r.transform.parent = gameObject.transform;
+        r.transform.localPosition = where;
+        r.transform.localRotation = rot;
+        return r;
+    }
 }
