@@ -16,8 +16,10 @@ namespace HF.Stages
 
         public override void Construct(GameMasterManager gm)
         {
+            Rooms = new List<RoomManager>();
             RoomManager room = (RoomManager)gm.SpawnObject(Library.GetRoom(RoomType.Boring).gameObject).GetComponent("RoomManager");
             Spawners = room.Spawners.ToList();
+            Rooms.Add(room);
         }
     }
 }

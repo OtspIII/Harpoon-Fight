@@ -204,6 +204,7 @@
     <Compile Include="Assets\Scripts\Game Stuff\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Game Stuff\SpawnerController.cs" />
     <Compile Include="Assets\Scripts\Game Stuff\StageManager.cs" />
+    <Compile Include="Assets\Scripts\Game Stuff\Stages\Lane5Stage.cs" />
     <Compile Include="Assets\Scripts\Game Stuff\Stages\BoringStage.cs" />
     <Compile Include="Assets\Scripts\Statics\Enums.cs" />
     <Compile Include="Assets\Scripts\Statics\Library.cs" />

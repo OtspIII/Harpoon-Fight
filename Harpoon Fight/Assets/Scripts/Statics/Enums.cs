@@ -10,11 +10,17 @@ namespace HF
         Boring,
         Lane5
     }
-    
+
     public enum RoomType
     {
         Boring,
-        Lane5
+        CoreRoom
+    }
+
+    public enum SceneryType
+    {
+        RoomWall,
+        RoomDoor
     }
 
     public enum ControlScheme

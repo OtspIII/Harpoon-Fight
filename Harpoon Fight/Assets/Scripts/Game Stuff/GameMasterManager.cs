@@ -6,7 +6,7 @@ public class GameMasterManager : MonoBehaviour
 {
     public ControlScheme P1Controls;
     public ControlScheme P2Controls;
-    public RoomType Room;
+    //public RoomType Room;
     public StageType Stage;
     public HUDManager HUD1;
     public HUDManager HUD2;

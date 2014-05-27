@@ -7,6 +7,7 @@ namespace HF
 {
     public class StageManager
     {
+        public List<RoomManager> Rooms { get; protected set; }
         public StageType Type;
         public List<SpawnerController> Spawners;
 

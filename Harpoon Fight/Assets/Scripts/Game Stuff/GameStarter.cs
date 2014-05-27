@@ -25,6 +25,7 @@ public class GameStarter : MonoBehaviour
         Modes.Add(new DeathmatchMode(3));
         Stages = new List<StageManager>();
         Stages.Add(new HF.Stages.BoringStage());
+        Stages.Add(new HF.Stages.Lane5Stage());
         HF.Library.Initialize(GM, Character, Eyes1, Eyes2, HUD1, HUD2, Spawnables, Rooms, Modes, Stages);
         HF.Sounds.Initialize(Sounds);
     }
